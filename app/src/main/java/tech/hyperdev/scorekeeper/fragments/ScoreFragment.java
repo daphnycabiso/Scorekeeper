@@ -13,9 +13,15 @@ import tech.hyperdev.scorekeeper.R;
  */
 public class ScoreFragment extends Fragment {
 
+
     public ScoreFragment() {
         // Required empty public constructor
     }
+
+    public static ScoreFragment newInstance() {
+        return new ScoreFragment();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,5 +29,8 @@ public class ScoreFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_score, container, false);
     }
+
+
+
 
 }
