@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import tech.hyperdev.scorekeeper.R;
@@ -25,9 +27,9 @@ public class ScoreFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static ScoreFragment newInstance() {
-        return new ScoreFragment();
-    }
+    ImageButton btnAdd, btnSub;
+    Spinner spinner;
+    int score;
 
 
     @Override
@@ -39,6 +41,36 @@ public class ScoreFragment extends Fragment {
 
         TextView tvname = (TextView) view.findViewById(R.id.tvTeamName);
         tvname.setText(name + "");
+
+
+        btnAdd = (ImageButton) view.findViewById(R.id.btnPlus);
+        btnSub = (ImageButton) view.findViewById(R.id.btnMinus);
+
+        final TextView tvScore = (TextView) view.findViewById(R.id.textScore);
+        score = Integer.parseInt(tvScore.getText().toString());
+        if(savedInstanceState!=null){
+            score = savedInstanceState.getInt("Score",score);
+            tvScore.setText(""+score);
+        }
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getActivity(),"Add"+score,Toast.LENGTH_SHORT).show();
+                ++score;
+                tvScore.setText(" "+score);
+            }
+        });
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getActivity(),"Minus"+score, Toast.LENGTH_SHORT).show();
+                --score;
+                tvScore.setText(" "+score);
+
+            }
+        });
+
 
         return view;
 
@@ -60,6 +92,12 @@ public class ScoreFragment extends Fragment {
         if (bundle != null) {
             name = bundle.getString("name");
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("Score",score);
     }
 
 
