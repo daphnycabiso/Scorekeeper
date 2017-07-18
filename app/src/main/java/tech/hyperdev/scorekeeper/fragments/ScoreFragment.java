@@ -76,8 +76,7 @@ public class ScoreFragment extends Fragment {
 
     }
 
-
-
+    
 
     public static ScoreFragment newInstance(String name){
         Bundle bundle = new Bundle();

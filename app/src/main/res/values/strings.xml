@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Scorekeeper</string>
+
+    <string-array name="theme_array">
+        <item>Night Mode</item>
+        <item>Day Mode</item>
+    </string-array>
 </resources>
