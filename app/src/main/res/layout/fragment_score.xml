@@ -55,4 +55,6 @@
         app:layout_constraintRight_toLeftOf="@+id/btnMinus"
         app:layout_constraintTop_toBottomOf="@+id/tvTeamName"
         app:layout_constraintHorizontal_bias="0.469" />
+
+
 </android.support.constraint.ConstraintLayout>
